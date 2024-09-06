@@ -255,13 +255,13 @@ Pod::Spec.new do |s|
     ss.dependency             "React-Fabric/uimanager"
 
     ss.compiler_flags       = folly_compiler_flags
-    ss.source_files         = "#{source_path}/react/renderer/animations/**/*.{m,mm,cpp,h}", "#{source_path}/react/renderer/components/image/*.h"
+    ss.source_files         = "#{source_path}/react/renderer/animations/**/*.{m,mm,cpp,h}", "#{source_path}/react/renderer/components/image/ImageProps.h"
     ss.public_header_files  = "#{source_path}/react/renderer/animations/**/*.h"
-    ss.private_header_files = "#{source_path}/react/renderer/components/image/*.h"
+    ss.private_header_files = "#{source_path}/react/renderer/components/image/ImageProps.h"
     ss.exclude_files        = "#{source_path}/react/renderer/animations/tests"
     ss.header_dir           = "react/renderer/animations"
 
-    ss.pod_target_xcconfig = { "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/React-Fabric/#{source_path}\"" }
+    ss.pod_target_xcconfig = { "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/React-Fabric/#{source_path}\" \"$(PODS_ROOT)/Headers/Public/React-Fabric\"" }
   end
 
   s.subspec "scheduler" do |ss|
