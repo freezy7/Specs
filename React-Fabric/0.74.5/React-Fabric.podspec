@@ -260,6 +260,8 @@ Pod::Spec.new do |s|
     ss.private_header_files = "#{source_path}/react/renderer/components/image/*.h"
     ss.exclude_files        = "#{source_path}/react/renderer/animations/tests"
     ss.header_dir           = "react/renderer/animations"
+
+    ss.pod_target_xcconfig = { "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/React-Fabric/#{source_path}\"" }
   end
 
   s.subspec "scheduler" do |ss|
