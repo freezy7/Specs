@@ -21,16 +21,12 @@ Pod::Spec.new do |spec|
                     "CLANG_CXX_LIBRARY" => "compiler-default"
                   }
 
-  spec.default_subspec        = "Default"
+  spec.ios.vendored_frameworks = "destroot/Library/Frameworks/universal/hermes.xcframework"
 
-  spec.subspec 'Default' do |default|
-    default.ios.vendored_frameworks = "destroot/Library/Frameworks/universal/hermes.xcframework"
-  end
-
-  spec.subspec 'Pre-built' do |ss|
-      ss.preserve_paths = ["destroot/bin/*"].concat(["**/*.{h,c,cpp}"])
-      ss.source_files = "destroot/include/hermes/**/*.h"
-      ss.header_mappings_dir = "destroot/include"
-      ss.ios.vendored_frameworks = "destroot/Library/Frameworks/universal/hermes.xcframework"
-  end
+  # spec.subspec 'Pre-built' do |ss|
+  #     ss.preserve_paths = ["destroot/bin/*"].concat(["**/*.{h,c,cpp}"])
+  #     ss.source_files = "destroot/include/hermes/**/*.h"
+  #     ss.header_mappings_dir = "destroot/include"
+  #     ss.ios.vendored_frameworks = "destroot/Library/Frameworks/universal/hermes.xcframework"
+  # end
 end
